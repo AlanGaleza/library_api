@@ -1,12 +1,13 @@
 package com.library.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,12 +15,12 @@ import java.time.LocalDateTime;
 @Entity
 public class Reader {
     @Id
-    private Long peselId;
-
-    @Column
-    @NotNull
     @GeneratedValue
-    private Long serialNumber;
+    private Long id;
+
+    @Column(unique = true)
+    @NotNull
+    private Long peselId;
 
     @Column
     @NotNull
@@ -31,5 +32,6 @@ public class Reader {
 
     @Column
     @NotNull
-    private LocalDateTime joinedDate;
+    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private Date joinedDate;
 }

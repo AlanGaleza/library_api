@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 public class TitleCopies {
     @Id
     @GeneratedValue
-    private Long titleCopiesId;
+    private Long titleCopyId;
 
     @ManyToOne
     @NotNull

@@ -12,15 +12,12 @@ public interface ReadersRepository extends CrudRepository<Reader, Long> {
     List<Reader> findAll();
 
     @Override
-    Optional<Reader> findById(Long peselId);
+    Optional<Reader>findById(Long id);
 
-    @Override
-    void deleteById(Long peselId);
+    Optional<Reader> findByPeselId(Long peselId);
+
+    void deleteByPeselId(Long peselId);
 
     @Override
     Reader save(Reader reader);
-
-    Optional<Reader> findBySerialNumber(Long serialNumber);
-
-    void deleteBySerialNumber(Long serialNumber);
 }

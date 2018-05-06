@@ -4,29 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@Entity
-public class Borrows {
-    @Id
-    @GeneratedValue
+public class BorrowsDto {
     private Long borrowId;
-
-    @ManyToOne
-    @JoinColumn(name = "peselId")
     private Reader reader;
-
-    @ManyToOne
-    @JoinColumn(name = "titleCopiesId")
     private TitleCopies titleCopies;
-
-    @Column
     private LocalDateTime borrowDate;
-
-    @Column
     private LocalDateTime returnDate;
 }

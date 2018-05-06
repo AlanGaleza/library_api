@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface TitleRepository extends CrudRepository<Title, Long> {
-    @Override
-    Optional<Title> findById(Long titleId);
+
+    Optional<Title> findByTitleId(Long titleId);
 
     @Override
     List<Title> findAll();
@@ -16,6 +16,5 @@ public interface TitleRepository extends CrudRepository<Title, Long> {
     @Override
     Title save(Title title);
 
-    @Override
-    void deleteById(Long titleId);
+    void deleteByTitleId(Long titleId);
 }

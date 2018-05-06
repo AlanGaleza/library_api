@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 public class TitleCopiesDto {
-    private Long titleCopiesId;
+    private Long titleCopyId;
     private Title title;
     private TitleStatus titleStatus;
 }
