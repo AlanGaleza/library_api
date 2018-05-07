@@ -34,9 +34,14 @@ public class ReaderController {
         return libraryMappers.mapToReaderDto(readersService.getReaderById(id));
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "deleteReader")
-    public void deleteReader(@RequestParam Long readerPeselId) {
+    @RequestMapping(method = RequestMethod.DELETE, value = "deleteReaderByPesel")
+    public void deleteReaderByPesel(@RequestParam Long readerPeselId) {
         readersService.deleteReaderByPeselId(readerPeselId);
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE, value = "deleteReader")
+    public void deleteReader(@RequestParam Long readerId) {
+        readersService.deleteReaderById(readerId);
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "createReader", consumes = APPLICATION_JSON_VALUE)

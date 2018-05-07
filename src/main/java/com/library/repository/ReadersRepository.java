@@ -20,4 +20,7 @@ public interface ReadersRepository extends CrudRepository<Reader, Long> {
 
     @Override
     Reader save(Reader reader);
+
+    @Override
+    void deleteById(Long id);
 }

@@ -1,6 +1,8 @@
 package com.library.controller;
 
+import com.library.domain.TitleCopies;
 import com.library.domain.TitleCopiesDto;
+import com.library.domain.TitleStatus;
 import com.library.mapper.LibraryMappers;
 import com.library.service.DbTitleCopiesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,11 @@ public class TitleCopiesController {
     @RequestMapping(method = RequestMethod.GET, value = "getTitleCopy")
     public TitleCopiesDto getTitleCopy(@RequestParam Long id) throws RequestNotFoundException{
         return libraryMappers.mapToTilteCopieDto(titleCopiesService.getTitleCopyById(id));
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "getNumberOfCopiesByStatusAndTitleId")
+    public List<TitleCopiesDto> getTitleCopies (@RequestParam Long id, TitleStatus titleStatus) {
+        return libraryMappers.mapToTitleCopieDtoList(titleCopiesService.getNumberOfAvailableTitleCopies(id, titleStatus));
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteTitleCopy")

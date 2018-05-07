@@ -1,6 +1,7 @@
 package com.library.service;
 
 import com.library.domain.TitleCopies;
+import com.library.domain.TitleStatus;
 import com.library.repository.TitleCopiesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,5 +20,9 @@ public class DbTitleCopiesService {
     public TitleCopies save(TitleCopies titleCopies) { return titleCopiesRepository.save(titleCopies); }
 
     public void deleteTitleCopiesById(Long titleCopiesId) { titleCopiesRepository.deleteByTitleCopyId(titleCopiesId); }
+
+    public List<TitleCopies> getNumberOfAvailableTitleCopies(Long titleId, TitleStatus titleStatus) {
+        return titleCopiesRepository.getTitleCopiesByTitle_TitleIdAndTitleStatus(titleId, titleStatus);
+    }
 }
 

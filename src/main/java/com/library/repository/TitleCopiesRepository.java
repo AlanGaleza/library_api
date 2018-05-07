@@ -1,6 +1,7 @@
 package com.library.repository;
 
 import com.library.domain.TitleCopies;
+import com.library.domain.TitleStatus;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
@@ -17,4 +18,6 @@ public interface TitleCopiesRepository extends CrudRepository<TitleCopies, Long>
     TitleCopies save(TitleCopies titleCopies);
 
     void deleteByTitleCopyId(Long titleCopiesId);
+
+    List<TitleCopies> getTitleCopiesByTitle_TitleIdAndTitleStatus(Long titleId, TitleStatus titleStatus);
 }

@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class DbReadersService {
@@ -30,4 +29,6 @@ public class DbReadersService {
     public void deleteReaderByPeselId(Long peselId) {
         readersRepository.deleteByPeselId(peselId);
     }
+
+    public void deleteReaderById(Long id) { readersRepository.deleteById(id); }
 }
