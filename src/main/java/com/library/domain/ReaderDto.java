@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,5 +15,5 @@ public class ReaderDto {
     private Long peselId;
     private String firstname;
     private String surname;
-    private Date joinedDate;
+    private LocalDateTime joinedDate;
 }

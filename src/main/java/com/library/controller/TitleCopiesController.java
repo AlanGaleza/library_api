@@ -28,11 +28,12 @@ public class TitleCopiesController {
 
     @RequestMapping(method = RequestMethod.GET, value = "getTitleCopy")
     public TitleCopiesDto getTitleCopy(@RequestParam Long id) throws RequestNotFoundException{
-        return libraryMappers.mapToTilteCopieDto(titleCopiesService.getTitleCopyById(id));
+        return titleCopiesService.getTitleCopyById(id).map(libraryMappers::mapToTilteCopieDto).orElseThrow(RequestNotFoundException::new);
     }
 
+    //TODO
     @RequestMapping(method = RequestMethod.GET, value = "getNumberOfCopiesByStatusAndTitleId")
-    public List<TitleCopiesDto> getTitleCopies (@RequestParam Long id, TitleStatus titleStatus) {
+    public List<TitleCopiesDto> getTitleCopies (@RequestParam Long id, @RequestParam TitleStatus titleStatus) {
         return libraryMappers.mapToTitleCopieDtoList(titleCopiesService.getNumberOfAvailableTitleCopies(id, titleStatus));
     }
 
